@@ -1,11 +1,13 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    private float _bulletDamage;
     private Camera _camera;
-
+ 
     private void Awake()
     {
         _camera = Camera.main;    
@@ -21,7 +23,7 @@ public class Bullet : MonoBehaviour
         if (collision.GetComponent<EnemyMovement>())
         {
             HealthController healthController = collision.GetComponent<HealthController>();
-            healthController.TakeDamage(10);
+            healthController.TakeDamage(_bulletDamage);
             Destroy(gameObject);
         }
     }
@@ -37,5 +39,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetBulletDamage(float damage) {
+        _bulletDamage = damage;
     }
 }

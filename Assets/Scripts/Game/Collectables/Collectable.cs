@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    private ICollectableBehaviour _collectableBehaviour;
-
-    private void Awake()
+    public Buffs buff;
+    public float despawnDelay = 5f;
+    private void Start()
     {
-        _collectableBehaviour = GetComponent<ICollectableBehaviour>();
+        StartCoroutine(DestroyAfterDelay());
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+
+    private void OnTriggerEnter2D(Collider2D collision) {
         var player = collision.GetComponent<PlayerMovement>();
 
         if (player != null)
         {
-            _collectableBehaviour.OnCollected(player.gameObject);
+            buff.Apply(player.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(despawnDelay);
+        Destroy(gameObject);
     }
 }

@@ -5,11 +5,23 @@ using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
-     [SerializeField]
-    private float _currentHealth;
+    [SerializeField]
+    public float _currentHealth;
 
     [SerializeField]
-    private float _maximumHealth;
+    public float _maximumHealth;
+
+    private ScoreController _scoreController;
+
+    public bool IsInvincible { get; set; }
+
+    public UnityEvent OnDied;
+
+    public UnityEvent OnDamaged;
+
+    public UnityEvent OnHealthChanged;
+
+    public UnityEvent OnBreakPointReached;
 
     public float RemainingHealthPercentage
     {
@@ -19,13 +31,31 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    public bool IsInvincible { get; set; }
+    public void Awake() 
+    {
+        _scoreController = FindObjectOfType<ScoreController>();
+    }
 
-    public UnityEvent OnDied;
+    public void Start() 
+    {
+        if(_scoreController != null) 
+        {
+            _scoreController.OnScoreChanged.AddListener(CheckScore);
+        } else 
+        {
+            Debug.Log("Score Controller doesn't exist");
+        }
+    }
 
-    public UnityEvent OnDamaged;
+    public void CheckScore()
+    {
+        int currScore = _scoreController.Score;
 
-    public UnityEvent OnHealthChanged;
+        if(currScore % 500 == 0)
+        {
+            OnBreakPointReached.Invoke();
+        }
+    }
 
     public void TakeDamage(float damageAmount)
     {
@@ -73,5 +103,12 @@ public class HealthController : MonoBehaviour
         {
             _currentHealth = _maximumHealth;
         }
+    }
+
+    public void IncreaseEnemyHealth(float amountToAdd) {
+        _currentHealth += amountToAdd;
+        _maximumHealth += amountToAdd;
+
+        OnHealthChanged.Invoke();
     }
 }

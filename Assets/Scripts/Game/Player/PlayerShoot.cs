@@ -55,4 +55,8 @@ public class PlayerShoot : MonoBehaviour
             _fireSingle = true;
         }
     }
+
+    public void applyBuff(float amount) {
+        _timeBetweenShots = amount;
+    }
 }

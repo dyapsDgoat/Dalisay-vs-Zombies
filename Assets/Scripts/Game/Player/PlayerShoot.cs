@@ -59,4 +59,8 @@ public class PlayerShoot : MonoBehaviour
     public void applyBuff(float amount) {
         _timeBetweenShots = amount;
     }
+
+    public void RevertBuff() {
+        _timeBetweenShots = 1;
+    }
 }

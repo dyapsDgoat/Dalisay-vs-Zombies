@@ -1,16 +1,4 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +27,11 @@ public class HighscoreTable : MonoBehaviour {
             AddHighscoreEntry(872931, "DAV");
             AddHighscoreEntry(785123, "CAT");
             AddHighscoreEntry(542024, "MAX");
-            AddHighscoreEntry(68245, "AAA");
+            AddHighscoreEntry(68245, "AAA1");
+            AddHighscoreEntry(16345364, "AAA2");
+            AddHighscoreEntry(211231, "AAA3");
+            AddHighscoreEntry(1231, "AAA4");
+            AddHighscoreEntry(512, "AAA5");
             // Reload
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -71,17 +63,8 @@ public class HighscoreTable : MonoBehaviour {
         entryTransform.gameObject.SetActive(true);
 
         int rank = transformList.Count + 1;
-        string rankString;
-        switch (rank) {
-        default:
-            rankString = rank + "TH"; break;
 
-        case 1: rankString = "1ST"; break;
-        case 2: rankString = "2ND"; break;
-        case 3: rankString = "3RD"; break;
-        }
-
-        entryTransform.Find("posText").GetComponent<Text>().text = rankString;
+        entryTransform.Find("posText").GetComponent<Text>().text = rank.ToString();
 
         int score = highscoreEntry.score;
 

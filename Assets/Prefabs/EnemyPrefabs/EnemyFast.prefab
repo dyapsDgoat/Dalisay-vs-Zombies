@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFast
       objectReference: {fileID: 0}
+    - target: {fileID: 5595283209470701154, guid: 8f331a8e7d033924ea82d1b7c1295e74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595283209470701154, guid: 8f331a8e7d033924ea82d1b7c1295e74, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6184187321840064342, guid: 8f331a8e7d033924ea82d1b7c1295e74, type: 3}
       propertyPath: _currentHealth
       value: 35

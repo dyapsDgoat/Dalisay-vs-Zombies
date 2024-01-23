@@ -44,4 +44,8 @@ public class Bullet : MonoBehaviour
     public void SetBulletDamage(float damage) {
         _bulletDamage = damage;
     }
+
+    public void RevertDamage() {
+        _bulletDamage = 5;
+    }
 }

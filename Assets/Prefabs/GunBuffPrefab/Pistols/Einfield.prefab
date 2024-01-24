@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: buff
       value: 
       objectReference: {fileID: 11400000, guid: b73e901b7147f7146bf49478f985423d, type: 2}
+    - target: {fileID: 2886650168265071339, guid: 372c133ed3d596a4db794ada0f3734ee, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 78410d0f216fe5f49aca0820069e7dd3, type: 3}
     - target: {fileID: 4832767313038908389, guid: 372c133ed3d596a4db794ada0f3734ee, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4

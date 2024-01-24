@@ -7,13 +7,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float smoothTime = 0.1f;
     [SerializeField] private AudioClip moveSound; // Add a field for the move sound
     [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private AudioClip collisionSound; // Add a field for the collision sound
 
     private Rigidbody2D rb;
     private Vector2 movementInput;
     private Vector2 currentVelocity;
     private Animator _animator;
-    private AudioSource audioSource; // Add an AudioSource field
+    private AudioSource audioSource; // Add an AudioSource field for move sound
     private AudioSource backgroundMusicSource;
+    private AudioSource collisionAudioSource; // Add an AudioSource field for collision sound
 
     private void Awake()
     {
@@ -23,16 +25,21 @@ public class PlayerMovement : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         _animator = GetComponent<Animator>();
 
-        // Initialize the AudioSource component
+        // Initialize the AudioSource component for move sound
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.clip = moveSound;
 
-         // Initialize the AudioSource component for background music
-    backgroundMusicSource = gameObject.AddComponent<AudioSource>();
-    backgroundMusicSource.playOnAwake = false;
-    backgroundMusicSource.loop = true; // Set to loop
-    backgroundMusicSource.clip = backgroundMusic;
+        // Initialize the AudioSource component for background music
+        backgroundMusicSource = gameObject.AddComponent<AudioSource>();
+        backgroundMusicSource.playOnAwake = false;
+        backgroundMusicSource.loop = true; // Set to loop
+        backgroundMusicSource.clip = backgroundMusic;
+
+        // Initialize the AudioSource component for collision sound
+        collisionAudioSource = gameObject.AddComponent<AudioSource>();
+        collisionAudioSource.playOnAwake = false;
+        collisionAudioSource.clip = collisionSound;
     }
 
     private void FixedUpdate()
@@ -112,9 +119,32 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Start()
+    {
+        // Play the background music
+        backgroundMusicSource.Play();
+    }
+
+private void OnCollisionEnter2D(Collision2D collision)
 {
-    // Play the background music
-    backgroundMusicSource.Play();
+    Debug.Log("Collision detected");
+
+    // Check if the collision is with an object that has the "CollisionTag" tag
+    if (collision.gameObject.CompareTag("CollisionTag"))
+    {
+        Debug.Log("Playing collision sound");
+
+        // Check if the collisionAudioSource and its clip are not null
+        if (collisionAudioSource != null && collisionAudioSource.clip != null)
+        {
+            // Play the collision sound
+            collisionAudioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("CollisionAudioSource or its clip is not set. Make sure to assign them in the Unity Editor.");
+        }
+    }
 }
+
 
 }

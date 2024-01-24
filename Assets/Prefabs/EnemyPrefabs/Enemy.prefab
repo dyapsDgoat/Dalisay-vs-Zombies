@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  enemyMovingSound: {fileID: 8300000, guid: adc244c6b74087a4695ee00bba2323c8, type: 3}
 --- !u!114 &604931067564181986
 MonoBehaviour:
   m_ObjectHideFlags: 0

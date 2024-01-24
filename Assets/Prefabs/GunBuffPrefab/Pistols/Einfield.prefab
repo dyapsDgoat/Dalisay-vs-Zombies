@@ -99,5 +99,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6199785764612432885, guid: 372c133ed3d596a4db794ada0f3734ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -437750918759625112}
   m_SourcePrefab: {fileID: 100100000, guid: 372c133ed3d596a4db794ada0f3734ee, type: 3}
+--- !u!1 &6310895895320393030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6199785764612432885, guid: 372c133ed3d596a4db794ada0f3734ee, type: 3}
+  m_PrefabInstance: {fileID: 116774934880294579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-437750918759625112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310895895320393030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac125f0c0566cc742aedbbcf42e1d137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunSound: {fileID: 8300000, guid: 137106ce4b8a5cf408e6efd80a868ee2, type: 3}

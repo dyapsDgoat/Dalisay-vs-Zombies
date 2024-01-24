@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: speed
       value: 3.28321
       objectReference: {fileID: 0}
+    - target: {fileID: 7895104007367028310, guid: 8f331a8e7d033924ea82d1b7c1295e74, type: 3}
+      propertyPath: enemyMovingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 27b30eeab317f534088b37b320ced43c, type: 3}
     - target: {fileID: 8469484368552191615, guid: 8f331a8e7d033924ea82d1b7c1295e74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

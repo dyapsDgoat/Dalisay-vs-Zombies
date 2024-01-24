@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3711933371112674030, guid: ee21ad72358cf884086c0a5e5e1c2720, type: 3}
+      propertyPath: enemyMovingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2618092b4aea18048a6ce5910fc5d14a, type: 3}
     - target: {fileID: 7230393357373873199, guid: ee21ad72358cf884086c0a5e5e1c2720, type: 3}
       propertyPath: m_Name
       value: EnemyTank
